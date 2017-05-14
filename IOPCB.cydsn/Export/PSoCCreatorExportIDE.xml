@@ -37,7 +37,7 @@
       <Folder BuildType="STRICT" Path="C:\Users\Kate\Documents\PSoC Creator\ITG-IO\IOPCB.cydsn">
         <Files Root="C:\Users\Kate\Documents\PSoC Creator\ITG-IO\IOPCB.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
-          <File BuildType="BUILD" Toolchain="">inputs.h</File>
+          <File BuildType="BUILD" Toolchain="">io.h</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
         </Files>
       </Folder>

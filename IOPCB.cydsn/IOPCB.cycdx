@@ -9,9 +9,9 @@
   <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="BUS_CLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="SR_P2_LOW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="SR_P2_LOW_STATUS_REG" address="0x4000646A" bitWidth="8" desc="" hidden="false" />
-    <register name="SR_P2_LOW_MASK_REG" address="0x4000648A" bitWidth="8" desc="" hidden="false" />
-    <register name="SR_P2_LOW_STATUS_AUX_CTL_REG" address="0x4000649A" bitWidth="8" desc="" hidden="false">
+    <register name="SR_P2_LOW_STATUS_REG" address="0x4000646D" bitWidth="8" desc="" hidden="false" />
+    <register name="SR_P2_LOW_MASK_REG" address="0x4000648D" bitWidth="8" desc="" hidden="false" />
+    <register name="SR_P2_LOW_STATUS_AUX_CTL_REG" address="0x4000649D" bitWidth="8" desc="" hidden="false">
       <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
         <value name="ENABLED" value="1" desc="Enable counter" />
         <value name="DISABLED" value="0" desc="Disable counter" />
@@ -71,9 +71,9 @@
   <block name="CLK_Debounce" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="LIGHTS_OUT_LOW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="SR_P1_LOW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="SR_P1_LOW_STATUS_REG" address="0x40006465" bitWidth="8" desc="" hidden="false" />
-    <register name="SR_P1_LOW_MASK_REG" address="0x40006485" bitWidth="8" desc="" hidden="false" />
-    <register name="SR_P1_LOW_STATUS_AUX_CTL_REG" address="0x40006495" bitWidth="8" desc="" hidden="false">
+    <register name="SR_P1_LOW_STATUS_REG" address="0x40006461" bitWidth="8" desc="" hidden="false" />
+    <register name="SR_P1_LOW_MASK_REG" address="0x40006481" bitWidth="8" desc="" hidden="false" />
+    <register name="SR_P1_LOW_STATUS_AUX_CTL_REG" address="0x40006491" bitWidth="8" desc="" hidden="false">
       <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
         <value name="ENABLED" value="1" desc="Enable counter" />
         <value name="DISABLED" value="0" desc="Disable counter" />
@@ -101,15 +101,14 @@
     </register>
   </block>
   <block name="USBFS" BASE="0x0" SIZE="0x0" desc="USBFS" visible="true" hidden="false">
-    <block name="ep_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="ZeroTerminal_4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="ep_0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ep_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ZeroTerminal_4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="bus_reset" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ep_0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ZeroTerminal_5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ZeroTerminal_6" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_6" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="bus_reset" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ZeroTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -118,16 +117,16 @@
     <block name="arb_int" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="Dm" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="dp_int" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="Dp" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ep_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="dp_int" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Dm" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_8" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="ZeroTerminal_7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="Dp" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="USB" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <block name="ep_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ord_int" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="ZeroTerminal_8" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+    <block name="ZeroTerminal_7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <register name="INTR_CAUSE_HIGH" address="0x40006008" bitWidth="32" desc="High priority interrupt Cause register" hidden="true">
       <field name="SOF_INTR" from="0" to="0" access="RW" resetVal="" desc="USB SOF Interrupt." hidden="false" />
       <field name="BUS_RESET_INTR" from="1" to="1" access="RW" resetVal="" desc="BUS RESET Interrupt." hidden="false" />
@@ -166,6 +165,29 @@
         <value name="Enabled" value="1" desc="Block does not respond to USB traffic." />
       </field>
     </register>
+    <register name="INTR_CAUSE_MED" address="0x40006008" bitWidth="32" desc="Medium priority interrupt Cause register" hidden="true">
+      <field name="SOF_INTR" from="0" to="0" access="RW" resetVal="" desc="USB SOF Interrupt." hidden="false" />
+      <field name="BUS_RESET_INTR" from="1" to="1" access="RW" resetVal="" desc="BUS RESET Interrupt." hidden="false" />
+      <field name="EP0_INTR" from="2" to="2" access="RW" resetVal="" desc="EP0 Interrupt." hidden="false" />
+      <field name="LPM_INTR" from="3" to="3" access="RW" resetVal="" desc="LPM Interrupt." hidden="false" />
+      <field name="RESUME_INTR" from="4" to="4" access="RW" resetVal="" desc="Resume Interrupt." hidden="false" />
+      <field name="ARB_EP_INTR" from="7" to="7" access="RW" resetVal="" desc="Arbiter Endpoint Interrupt." hidden="false" />
+      <field name="EP1_INTR" from="8" to="8" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
+      <field name="EP2_INTR" from="9" to="9" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
+      <field name="EP3_INTR" from="10" to="10" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
+      <field name="EP4_INTR" from="11" to="11" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
+      <field name="EP5_INTR" from="12" to="12" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
+      <field name="EP6_INTR" from="13" to="13" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
+      <field name="EP7_INTR" from="14" to="14" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
+      <field name="EP8_INTR" from="15" to="15" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
+    </register>
+    <register name="LPM_STAT" address="0x40006008" bitWidth="32" desc="LPM Status register" hidden="true">
+      <field name="LPM_BESL" from="3" to="0" access="RW" resetVal="" desc="Best Effort Service Latency. This value should match either the Baseline (DeepSleep) or Deep (Hibernate) BESL in the BOS descriptor." hidden="false" />
+      <field name="LPM_REMOTEWAKE" from="4" to="4" access="RW" resetVal="" desc="LPM ACK response enable (if LPM_EN=1), to allow firmware to refuse a low power request." hidden="false">
+        <value name="Prohibited" value="0" desc="Device is prohibited from initiating a remote wake." />
+        <value name="Allowed" value="1" desc="Device is allow to wake the host." />
+      </field>
+    </register>
     <register name="INTR_LVL_SEL" address="0x40006008" bitWidth="32" desc="Select interrupt level for each interrupt source" hidden="true">
       <field name="SOF_LVL_SEL" from="1" to="0" access="RW" resetVal="" desc="USB SOF Interrupt level select." hidden="false" />
       <field name="BUS_RESET_LVL_SEL" from="3" to="2" access="RW" resetVal="" desc="BUS RESET Interrupt level select." hidden="false" />
@@ -181,43 +203,6 @@
       <field name="EP6_LVL_SEL" from="27" to="26" access="RW" resetVal="" desc="EP6 Interrupt level select." hidden="false" />
       <field name="EP7_LVL_SEL" from="29" to="28" access="RW" resetVal="" desc="EP7 Interrupt level select." hidden="false" />
       <field name="EP8_LVL_SEL" from="31" to="30" access="RW" resetVal="" desc="EP8 Interrupt level select." hidden="false" />
-    </register>
-    <register name="INTR_SIE_MASK" address="0x40006008" bitWidth="32" desc="USB SOF, BUS RESET and EP0 Interrupt Mask" hidden="true">
-      <field name="SOF_INTR" from="0" to="0" access="RW" resetVal="" desc="USB SOF Interrupt." hidden="false" />
-      <field name="BUS_RESET_INTR" from="1" to="1" access="RW" resetVal="" desc="BUS RESET Interrupt." hidden="false" />
-      <field name="EP0_INTR" from="2" to="2" access="RW" resetVal="" desc="EP0 Interrupt." hidden="false" />
-      <field name="LPM_INTR" from="3" to="3" access="RW" resetVal="" desc="LPM Interrupt." hidden="false" />
-      <field name="RESUME_INTR" from="4" to="4" access="RW" resetVal="" desc="Resume Interrupt." hidden="false" />
-    </register>
-    <register name="CHGDET_CTRL" address="0x40006008" bitWidth="32" desc="Charger Detection Control Register" hidden="true">
-      <field name="COMP_DP" from="0" to="0" access="RW" resetVal="" desc="Connect the primary/secondary detection comparator and current sink  to D+." hidden="false" />
-      <field name="COMP_DM" from="1" to="1" access="RW" resetVal="" desc="Connect the primary/secondary detection comparator and current sink to D-." hidden="false" />
-      <field name="COMP_EN" from="2" to="2" access="RW" resetVal="" desc="Enable the primary/secondary detection comparator and current sink. This bit can be written concurrently with COMP_DP/COMP_DM.  Note that REF_EN must also be 1 for the comparator to work (because it receives a reference from it)." hidden="false" />
-      <field name="REF_DP" from="3" to="3" access="RW" resetVal="" desc="Connect the primary/secondary detection reference driver to D+." hidden="false" />
-      <field name="REF_DM" from="4" to="4" access="RW" resetVal="" desc="Connect the primary/secondary detection reference driver to D-." hidden="false" />
-      <field name="REF_EN" from="5" to="5" access="RW" resetVal="" desc="Enable the primary/secondary reference driver.  This bit can be written concurrently with REF_DP/REF_DM." hidden="false" />
-      <field name="DCD_SRC_EN" from="6" to="6" access="RW" resetVal="" desc="Enable the Data Contact Detect current source on D+." hidden="false" />
-      <field name="ADFT_CTRL" from="13" to="12" access="RW" resetVal="" desc="ADFT option to bring out buffered version of voltage reference input or adft intput to ADFT output (adft_out)." hidden="false">
-        <value name="ADFT_NORMAL" value="00" desc="Normal operating mode, reference buffer used to generate internal references.  adft_out pulled low." />
-        <value name="ADFT_VBG" value="01" desc="Use reference buffer to bring out voltage reference input (vbg) onto adft_out." />
-        <value name="ADFT_DONTUSE" value="10" desc="Illegal - do not use." />
-        <value name="ADFT_ADFTIN" value="11" desc="Use reference buffer to bring out buffered version of system level adft input (adft_in) onto adft_out." />
-      </field>
-      <field name="COMP_OUT" from="31" to="31" access="RW" resetVal="" desc="Output of the primary/secondary detection comparator.  This output is not filtered or debounced and must be polled in software." hidden="false" />
-    </register>
-    <register name="LPM_STAT" address="0x40006008" bitWidth="32" desc="LPM Status register" hidden="true">
-      <field name="LPM_BESL" from="3" to="0" access="RW" resetVal="" desc="Best Effort Service Latency. This value should match either the Baseline (DeepSleep) or Deep (Hibernate) BESL in the BOS descriptor." hidden="false" />
-      <field name="LPM_REMOTEWAKE" from="4" to="4" access="RW" resetVal="" desc="LPM ACK response enable (if LPM_EN=1), to allow firmware to refuse a low power request." hidden="false">
-        <value name="Prohibited" value="0" desc="Device is prohibited from initiating a remote wake." />
-        <value name="Allowed" value="1" desc="Device is allow to wake the host." />
-      </field>
-    </register>
-    <register name="`INTR_SIE" address="0x40006008" bitWidth="32" desc="USB SOF, BUS RESET and EP0 Interrupt Status" hidden="true">
-      <field name="SOF_INTR" from="0" to="0" access="RW" resetVal="" desc="USB SOF Interrupt." hidden="false" />
-      <field name="BUS_RESET_INTR" from="1" to="1" access="RW" resetVal="" desc="BUS RESET Interrupt." hidden="false" />
-      <field name="EP0_INTR" from="2" to="2" access="RW" resetVal="" desc="EP0 Interrupt." hidden="false" />
-      <field name="LPM_INTR" from="3" to="3" access="RW" resetVal="" desc="LPM Interrupt." hidden="false" />
-      <field name="RESUME_INTR" from="4" to="4" access="RW" resetVal="" desc="Resume Interrupt." hidden="false" />
     </register>
     <register name="POWER_CTRL" address="0x40006008" bitWidth="32" desc="Power Control Register" hidden="true">
       <field name="VBUS_VALID_OVR" from="1" to="0" access="RW" resetVal="" desc="Overrides the value received from the GPIO input buffer connected to VBUS" hidden="false">
@@ -238,21 +223,35 @@
       <field name="ENABLE_CHGDET" from="30" to="30" access="RW" resetVal="" desc="Enables the charger detection circuitry.  After USB has connected, this circuitry can be disabled to save power." hidden="false" />
       <field name="ENABLE" from="31" to="31" access="RW" resetVal="" desc="Mast enable of PHY and Charger Detector.  Nothing will work until this bit is set." hidden="false" />
     </register>
-    <register name="INTR_CAUSE_MED" address="0x40006008" bitWidth="32" desc="Medium priority interrupt Cause register" hidden="true">
+    <register name="CHGDET_CTRL" address="0x40006008" bitWidth="32" desc="Charger Detection Control Register" hidden="true">
+      <field name="COMP_DP" from="0" to="0" access="RW" resetVal="" desc="Connect the primary/secondary detection comparator and current sink  to D+." hidden="false" />
+      <field name="COMP_DM" from="1" to="1" access="RW" resetVal="" desc="Connect the primary/secondary detection comparator and current sink to D-." hidden="false" />
+      <field name="COMP_EN" from="2" to="2" access="RW" resetVal="" desc="Enable the primary/secondary detection comparator and current sink. This bit can be written concurrently with COMP_DP/COMP_DM.  Note that REF_EN must also be 1 for the comparator to work (because it receives a reference from it)." hidden="false" />
+      <field name="REF_DP" from="3" to="3" access="RW" resetVal="" desc="Connect the primary/secondary detection reference driver to D+." hidden="false" />
+      <field name="REF_DM" from="4" to="4" access="RW" resetVal="" desc="Connect the primary/secondary detection reference driver to D-." hidden="false" />
+      <field name="REF_EN" from="5" to="5" access="RW" resetVal="" desc="Enable the primary/secondary reference driver.  This bit can be written concurrently with REF_DP/REF_DM." hidden="false" />
+      <field name="DCD_SRC_EN" from="6" to="6" access="RW" resetVal="" desc="Enable the Data Contact Detect current source on D+." hidden="false" />
+      <field name="ADFT_CTRL" from="13" to="12" access="RW" resetVal="" desc="ADFT option to bring out buffered version of voltage reference input or adft intput to ADFT output (adft_out)." hidden="false">
+        <value name="ADFT_NORMAL" value="00" desc="Normal operating mode, reference buffer used to generate internal references.  adft_out pulled low." />
+        <value name="ADFT_VBG" value="01" desc="Use reference buffer to bring out voltage reference input (vbg) onto adft_out." />
+        <value name="ADFT_DONTUSE" value="10" desc="Illegal - do not use." />
+        <value name="ADFT_ADFTIN" value="11" desc="Use reference buffer to bring out buffered version of system level adft input (adft_in) onto adft_out." />
+      </field>
+      <field name="COMP_OUT" from="31" to="31" access="RW" resetVal="" desc="Output of the primary/secondary detection comparator.  This output is not filtered or debounced and must be polled in software." hidden="false" />
+    </register>
+    <register name="INTR_SIE_MASK" address="0x40006008" bitWidth="32" desc="USB SOF, BUS RESET and EP0 Interrupt Mask" hidden="true">
       <field name="SOF_INTR" from="0" to="0" access="RW" resetVal="" desc="USB SOF Interrupt." hidden="false" />
       <field name="BUS_RESET_INTR" from="1" to="1" access="RW" resetVal="" desc="BUS RESET Interrupt." hidden="false" />
       <field name="EP0_INTR" from="2" to="2" access="RW" resetVal="" desc="EP0 Interrupt." hidden="false" />
       <field name="LPM_INTR" from="3" to="3" access="RW" resetVal="" desc="LPM Interrupt." hidden="false" />
       <field name="RESUME_INTR" from="4" to="4" access="RW" resetVal="" desc="Resume Interrupt." hidden="false" />
-      <field name="ARB_EP_INTR" from="7" to="7" access="RW" resetVal="" desc="Arbiter Endpoint Interrupt." hidden="false" />
-      <field name="EP1_INTR" from="8" to="8" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
-      <field name="EP2_INTR" from="9" to="9" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
-      <field name="EP3_INTR" from="10" to="10" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
-      <field name="EP4_INTR" from="11" to="11" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
-      <field name="EP5_INTR" from="12" to="12" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
-      <field name="EP6_INTR" from="13" to="13" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
-      <field name="EP7_INTR" from="14" to="14" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
-      <field name="EP8_INTR" from="15" to="15" access="RW" resetVal="" desc="EP1 Interrupt." hidden="false" />
+    </register>
+    <register name="`INTR_SIE" address="0x40006008" bitWidth="32" desc="USB SOF, BUS RESET and EP0 Interrupt Status" hidden="true">
+      <field name="SOF_INTR" from="0" to="0" access="RW" resetVal="" desc="USB SOF Interrupt." hidden="false" />
+      <field name="BUS_RESET_INTR" from="1" to="1" access="RW" resetVal="" desc="BUS RESET Interrupt." hidden="false" />
+      <field name="EP0_INTR" from="2" to="2" access="RW" resetVal="" desc="EP0 Interrupt." hidden="false" />
+      <field name="LPM_INTR" from="3" to="3" access="RW" resetVal="" desc="LPM Interrupt." hidden="false" />
+      <field name="RESUME_INTR" from="4" to="4" access="RW" resetVal="" desc="Resume Interrupt." hidden="false" />
     </register>
     <register name="INTR_CAUSE_LO" address="0x40006008" bitWidth="32" desc="Low priority interrupt Cause register" hidden="true">
       <field name="SOF_INTR" from="0" to="0" access="RW" resetVal="" desc="USB SOF Interrupt." hidden="false" />
@@ -412,15 +411,15 @@
       </field>
       <field name="DATA_TOGGLE" from="5" to="5" access="RW" resetVal="" desc="This bit selects the DATA packet's toggle state. For IN transactions firmware must set this bit to the expected state. For OUT transactions the hardware sets this bit to the state of the received Data Toggle bit." hidden="false" />
     </register>
-    <register name="SIE_EP3_CNT0" address="0x4000602C" bitWidth="8" desc="SIE Endpoint 1 Count0 Register" hidden="false">
+    <register name="SIE_EP3_CNT0" address="0x4000602C" bitWidth="8" desc="SIE Endpoint 1 Count0 Register" hidden="true">
       <field name="DATA_COUNT_MSB" from="2" to="0" access="RW" resetVal="" desc="These bits are the 3 MSb bits of an 11-bit counter. The LSb are the Data Count[7:0] bits of the CNT1 register. Refer to the CNT1 register for more information." hidden="false" />
       <field name="DATA_VALID" from="4" to="4" access="RW" resetVal="" desc="DATA_ERROR - 0, DATA_VALID - 1." hidden="false" />
       <field name="DATA_TOGGLE" from="7" to="7" access="RW" resetVal="" desc="This bit selects the DATA packet's toggle state. For IN transactions firmware must set this bit to the expected state. For OUT transactions the hardware sets this bit to the state of the received Data Toggle bit." hidden="false" />
     </register>
-    <register name="SIE_EP3_CNT1" address="0x4000602D" bitWidth="8" desc="SIE Endpoint 1 Count1 Register" hidden="false">
+    <register name="SIE_EP3_CNT1" address="0x4000602D" bitWidth="8" desc="SIE Endpoint 1 Count1 Register" hidden="true">
       <field name="DATA_COUNT" from="7" to="0" access="RW" resetVal="" desc="These bits are the 8 LSb of a 11-bit counter.  The 3 MSb bits are in the CNT0 register. The 11-bit count indicates the number of data bytes in a transaction." hidden="false" />
     </register>
-    <register name="SIE_EP3_CR0" address="0x4000602E" bitWidth="8" desc="SIE Endpoint 1 Control Register" hidden="false">
+    <register name="SIE_EP3_CR0" address="0x4000602E" bitWidth="8" desc="SIE Endpoint 1 Control Register" hidden="true">
       <field name="MODE" from="3" to="0" access="RW" resetVal="" desc="The mode controls how the USB SIE responds to traffic and how the USB SIE changes the mode of that endpoint as a result of host packets to the endpoint." hidden="false">
         <value name="DISABLE" value="0000" desc="Ignore all USB traffic to this endpoint." />
         <value name="NAK_INOUT" value="0001" desc="SETUP: Accept, IN: NAK, OUT: NAK." />
@@ -737,13 +736,13 @@
       <field name="EP7_INTR" from="6" to="6" access="R" resetVal="" desc="Interrupt status for EP7." hidden="false" />
       <field name="EP8_INTR" from="7" to="7" access="R" resetVal="" desc="Interrupt status for EP8." hidden="false" />
     </register>
-    <register name="ARB_EP3_CFG" address="0x400060A0" bitWidth="8" desc="Arbiter Endpoint 1 Configuration Register" hidden="false">
+    <register name="ARB_EP3_CFG" address="0x400060A0" bitWidth="8" desc="Arbiter Endpoint 1 Configuration Register" hidden="true">
       <field name="IN_DATA_RDY" from="0" to="0" access="RW" resetVal="" desc="Indication that Endpoint Packet Data is Ready in Main memory" hidden="false" />
       <field name="DMA_REQ" from="1" to="1" access="RW" resetVal="" desc="Manual DMA Request for a particular (1 to 8) endpoint; changing this field from 0 to 1 causes a DMA request to be generated." hidden="false" />
       <field name="CRC_BYPASS" from="2" to="2" access="RW" resetVal="" desc="CRC_NORMAL - 0, CRC_BYPASS - 1" hidden="false" />
       <field name="RESET_PTR" from="3" to="3" access="RW" resetVal="" desc="RESET_KRYPTON - 0, RESET_NORMAL - 1" hidden="false" />
     </register>
-    <register name="ARB_EP3_INT_EN" address="0x400060A1" bitWidth="8" desc="Arbiter Endpoint 1 Interrupt Enable Register" hidden="false">
+    <register name="ARB_EP3_INT_EN" address="0x400060A1" bitWidth="8" desc="Arbiter Endpoint 1 Interrupt Enable Register" hidden="true">
       <field name="IN_BUF_FULL_EN" from="0" to="0" access="RW" resetVal="" desc="IN Endpoint Local Buffer Full" hidden="false" />
       <field name="DMA_GNT_EN" from="1" to="1" access="RW" resetVal="" desc="Endpoint DMA Grant" hidden="false" />
       <field name="BUF_OVER_EN" from="2" to="2" access="RW" resetVal="" desc="Endpoint Buffer Overflow" hidden="false" />
@@ -751,7 +750,7 @@
       <field name="ERR_INT_EN" from="4" to="4" access="RW" resetVal="" desc="Endpoint Error in Transaction Interrupt" hidden="false" />
       <field name="DMA_TERMIN_EN" from="5" to="5" access="RW" resetVal="" desc="Endpoint DMA Terminated Enable" hidden="false" />
     </register>
-    <register name="ARB_EP3_INT_SR" address="0x400060A2" bitWidth="8" desc="Arbiter Endpoint 1 Interrupt Status Register" hidden="false">
+    <register name="ARB_EP3_INT_SR" address="0x400060A2" bitWidth="8" desc="Arbiter Endpoint 1 Interrupt Status Register" hidden="true">
       <field name="IN_BUF_FULL_EN" from="0" to="0" access="RW" resetVal="" desc="IN Endpoint Local Buffer Full" hidden="false" />
       <field name="DMA_GNT_EN" from="1" to="1" access="RW" resetVal="" desc="Endpoint DMA Grant" hidden="false" />
       <field name="BUF_OVER_EN" from="2" to="2" access="RW" resetVal="" desc="Endpoint Buffer Overflow" hidden="false" />
@@ -759,16 +758,16 @@
       <field name="ERR_INT_EN" from="4" to="4" access="RW" resetVal="" desc="Endpoint Error in Transaction Interrupt" hidden="false" />
       <field name="DMA_TERMIN_EN" from="5" to="5" access="RW" resetVal="" desc="Endpoint DMA Terminated Enable" hidden="false" />
     </register>
-    <register name="ARB_RW3_WA" address="0x400060A4" bitWidth="8" desc="Arbiter Endpoint 1 Write Address LSB Register" hidden="false">
+    <register name="ARB_RW3_WA" address="0x400060A4" bitWidth="8" desc="Arbiter Endpoint 1 Write Address LSB Register" hidden="true">
       <field name="WA8" from="7" to="0" access="RW" resetVal="" desc="Write Address for EP." hidden="false" />
     </register>
-    <register name="ARB_RW3_WA_MSB" address="0x400060A5" bitWidth="8" desc="Arbiter Endpoint 1 Write Address MSB Register" hidden="false">
+    <register name="ARB_RW3_WA_MSB" address="0x400060A5" bitWidth="8" desc="Arbiter Endpoint 1 Write Address MSB Register" hidden="true">
       <field name="WA9" from="0" to="0" access="RW" resetVal="" desc="Write Address for EP MSB." hidden="false" />
     </register>
-    <register name="ARB_RW3_RA" address="0x400060A6" bitWidth="8" desc="Arbiter Endpoint 1 Read Address LSB Register" hidden="false">
+    <register name="ARB_RW3_RA" address="0x400060A6" bitWidth="8" desc="Arbiter Endpoint 1 Read Address LSB Register" hidden="true">
       <field name="RA8" from="7" to="0" access="RW" resetVal="" desc="Read Address for EP MSB." hidden="false" />
     </register>
-    <register name="ARB_RW3_RA_MSB" address="0x400060A7" bitWidth="8" desc="Arbiter Endpoint 1 Read Address MSB Register" hidden="false">
+    <register name="ARB_RW3_RA_MSB" address="0x400060A7" bitWidth="8" desc="Arbiter Endpoint 1 Read Address MSB Register" hidden="true">
       <field name="RA9" from="0" to="0" access="RW" resetVal="" desc="Read Address for EP MSB." hidden="false" />
     </register>
     <register name="CWA" address="0x400060AC" bitWidth="8" desc="Common Area Write Address LSB Register" hidden="true">
@@ -991,7 +990,7 @@
   <block name="DB_P2_LOW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="P1_HIGH" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="LIGHTS_HIGH" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="LIGHTS_HIGH_CONTROL_REG" address="0x40006475" bitWidth="8" desc="" hidden="false" />
+    <register name="LIGHTS_HIGH_CONTROL_REG" address="0x40006472" bitWidth="8" desc="" hidden="false" />
   </block>
   <block name="LIGHTS_LOW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <register name="LIGHTS_LOW_CONTROL_REG" address="0x40006575" bitWidth="8" desc="" hidden="false" />

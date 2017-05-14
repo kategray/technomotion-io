@@ -14,14 +14,12 @@
 // If multiple descriptors were defined, we could use them
 #define USBFS_DESCRIPTOR 0u
 
-// Endpoints
-#define P1_IN_ENDPOINT  1u
-#define P2_IN_ENDPOINT  2u
+// Endpoints 
+#define IN_ENDPOINT   1u    // Inputs
+#define OUT_ENDPOINT  2u    // Lights
 
 // These variables hold the input for the players
-PLAYER player_1;
-PLAYER player_2;
-char message[128];
+INPUTS input;
 
 int main()
 {
@@ -33,8 +31,7 @@ int main()
     // memory (constants, pre-initialized variables).  Afterwards, it initializes the remainder of
     // the sections with zeros.  I don't care - I'm going to zero memory anyway, because it's a good
     // habit to get into.  Initialize your variables, people!
-    memset(&player_1, 0u, sizeof(PLAYER));
-    memset(&player_2, 0u, sizeof(PLAYER));
+    memset(&input, 0u, sizeof(INPUTS));
     
     // Start up USB and wait for enumeration.
     USBFS_Start(USBFS_DESCRIPTOR, USBFS_5V_OPERATION);
@@ -44,30 +41,20 @@ int main()
     }
     
     // Begin USB traffic
-    USBFS_LoadInEP(P1_IN_ENDPOINT, (uint8*)&player_1, sizeof(PLAYER));
-    USBFS_LoadInEP(P2_IN_ENDPOINT, (uint8*)&player_2, sizeof(PLAYER));
-    
+    USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input, sizeof(INPUTS));    
 
     // Loop until power is lost
     for (;;) {
         // Check for acknowledgements from the PC
-        if (USBFS_bGetEPAckState(P1_IN_ENDPOINT) != 0) {
-            // Player 1 is acknowledged, so copy the low and high bits into the player data structure
+        if (USBFS_bGetEPAckState(IN_ENDPOINT) != 0) {
+            // Input acknowledged, so copy the low and high bits into the player data structure
             // Inputs are active low, so we have to invert them.
-            uint16 p1_data = ~(((uint16)SR_P1_HIGH_Read() << 8) + (uint16)SR_P1_LOW_Read());
-            memcpy (&player_1, &p1_data, sizeof(PLAYER));
+            uint8 input_data[] = {~SR_P1_LOW_Read(), ~SR_P1_HIGH_Read(), ~SR_P2_LOW_Read(), ~SR_P2_HIGH_Read()};
+            memcpy (&input, &input_data, sizeof(INPUTS));
             
-            player_1.COIN = 1;
+            // player_1.COIN = 1;
 
-            USBFS_LoadInEP(P1_IN_ENDPOINT, (uint8*)&player_1, sizeof(PLAYER));
-        }
-        
-        if (USBFS_bGetEPAckState(P2_IN_ENDPOINT) != 0) {
-            // Copy player 2 into the data structure
-            uint16 p2_data = ~(((uint16)SR_P2_HIGH_Read() << 8) + (uint16)SR_P2_LOW_Read());
-            memcpy (&player_2, &p2_data, sizeof(PLAYER));
-            
-            USBFS_LoadInEP(P2_IN_ENDPOINT, (uint8*)&player_2, sizeof(PLAYER));
+            USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input, sizeof(INPUTS));
         }
     }
 }

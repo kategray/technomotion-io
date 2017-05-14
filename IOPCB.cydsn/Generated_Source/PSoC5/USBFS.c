@@ -83,7 +83,7 @@ uint8 USBFS_initVar = 0u;
         0u,
         USBFS_ep1_dma__TR_OUTPUT,
         USBFS_ep2_dma__TR_OUTPUT,
-        USBFS_ep3_dma__TR_OUTPUT,
+        0u,
         0u,
         0u,
         0u,

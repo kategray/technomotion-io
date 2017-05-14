@@ -41,8 +41,8 @@ const uint8 CYCODE USBFS_DEVICE0_DESCR[18u] = {
 /* bDeviceSubClass                         */ 0x00u,
 /* bDeviceProtocol                         */ 0x00u,
 /* bMaxPacketSize0                         */ 0x08u,
-/* idVendor                                */ 0xC0u, 0x07u,
-/* idProduct                               */ 0x84u, 0x15u,
+/* idVendor                                */ 0x52u, 0x83u,
+/* idProduct                               */ 0xA0u, 0x20u,
 /* bcdDevice                               */ 0x00u, 0x30u,
 /* iManufacturer                           */ 0x01u,
 /* iProduct                                */ 0x02u,
@@ -52,11 +52,11 @@ const uint8 CYCODE USBFS_DEVICE0_DESCR[18u] = {
 /*********************************************************************
 * Config Descriptor  
 *********************************************************************/
-const uint8 CYCODE USBFS_DEVICE0_CONFIGURATION0_DESCR[84u] = {
+const uint8 CYCODE USBFS_DEVICE0_CONFIGURATION0_DESCR[41u] = {
 /*  Config Descriptor Length               */ 0x09u,
 /*  DescriptorType: CONFIG                 */ 0x02u,
-/*  wTotalLength                           */ 0x54u, 0x00u,
-/*  bNumInterfaces                         */ 0x03u,
+/*  wTotalLength                           */ 0x29u, 0x00u,
+/*  bNumInterfaces                         */ 0x01u,
 /*  bConfigurationValue                    */ 0x01u,
 /*  iConfiguration                         */ 0x00u,
 /*  bmAttributes                           */ 0x80u,
@@ -68,11 +68,11 @@ const uint8 CYCODE USBFS_DEVICE0_CONFIGURATION0_DESCR[84u] = {
 /*  DescriptorType: INTERFACE              */ 0x04u,
 /*  bInterfaceNumber                       */ 0x00u,
 /*  bAlternateSetting                      */ 0x00u,
-/*  bNumEndpoints                          */ 0x01u,
+/*  bNumEndpoints                          */ 0x02u,
 /*  bInterfaceClass                        */ 0x03u,
 /*  bInterfaceSubClass                     */ 0x00u,
 /*  bInterfaceProtocol                     */ 0x00u,
-/*  iInterface                             */ 0x03u,
+/*  iInterface                             */ 0x00u,
 /*********************************************************************
 * HID Class Descriptor
 *********************************************************************/
@@ -91,78 +91,23 @@ const uint8 CYCODE USBFS_DEVICE0_CONFIGURATION0_DESCR[84u] = {
 /*  DescriptorType: ENDPOINT               */ 0x05u,
 /*  bEndpointAddress                       */ 0x81u,
 /*  bmAttributes                           */ 0x03u,
-/*  wMaxPacketSize                         */ 0x02u, 0x00u,
+/*  wMaxPacketSize                         */ 0x04u, 0x00u,
 /*  bInterval                              */ 0x02u,
-/*********************************************************************
-* Interface Descriptor
-*********************************************************************/
-/*  Interface Descriptor Length            */ 0x09u,
-/*  DescriptorType: INTERFACE              */ 0x04u,
-/*  bInterfaceNumber                       */ 0x01u,
-/*  bAlternateSetting                      */ 0x00u,
-/*  bNumEndpoints                          */ 0x01u,
-/*  bInterfaceClass                        */ 0x03u,
-/*  bInterfaceSubClass                     */ 0x00u,
-/*  bInterfaceProtocol                     */ 0x00u,
-/*  iInterface                             */ 0x04u,
-/*********************************************************************
-* HID Class Descriptor
-*********************************************************************/
-/*  HID Class Descriptor Length            */ 0x09u,
-/*  DescriptorType: HID_CLASS              */ 0x21u,
-/*  bcdHID                                 */ 0x11u, 0x01u,
-/*  bCountryCode                           */ 0x21u,
-/*  bNumDescriptors                        */ 0x01u,
-/*  bDescriptorType                        */ 0x22u,
-/*  wDescriptorLength (LSB)                */ USBFS_HID_RPT_1_SIZE_LSB,
-/*  wDescriptorLength (MSB)                */ USBFS_HID_RPT_1_SIZE_MSB,
 /*********************************************************************
 * Endpoint Descriptor
 *********************************************************************/
 /*  Endpoint Descriptor Length             */ 0x07u,
 /*  DescriptorType: ENDPOINT               */ 0x05u,
-/*  bEndpointAddress                       */ 0x82u,
+/*  bEndpointAddress                       */ 0x02u,
 /*  bmAttributes                           */ 0x03u,
 /*  wMaxPacketSize                         */ 0x02u, 0x00u,
-/*  bInterval                              */ 0x02u,
-/*********************************************************************
-* Interface Descriptor
-*********************************************************************/
-/*  Interface Descriptor Length            */ 0x09u,
-/*  DescriptorType: INTERFACE              */ 0x04u,
-/*  bInterfaceNumber                       */ 0x02u,
-/*  bAlternateSetting                      */ 0x00u,
-/*  bNumEndpoints                          */ 0x01u,
-/*  bInterfaceClass                        */ 0x03u,
-/*  bInterfaceSubClass                     */ 0x00u,
-/*  bInterfaceProtocol                     */ 0x00u,
-/*  iInterface                             */ 0x00u,
-/*********************************************************************
-* HID Class Descriptor
-*********************************************************************/
-/*  HID Class Descriptor Length            */ 0x09u,
-/*  DescriptorType: HID_CLASS              */ 0x21u,
-/*  bcdHID                                 */ 0x11u, 0x01u,
-/*  bCountryCode                           */ 0x21u,
-/*  bNumDescriptors                        */ 0x01u,
-/*  bDescriptorType                        */ 0x22u,
-/*  wDescriptorLength (LSB)                */ USBFS_HID_RPT_2_SIZE_LSB,
-/*  wDescriptorLength (MSB)                */ USBFS_HID_RPT_2_SIZE_MSB,
-/*********************************************************************
-* Endpoint Descriptor
-*********************************************************************/
-/*  Endpoint Descriptor Length             */ 0x07u,
-/*  DescriptorType: ENDPOINT               */ 0x05u,
-/*  bEndpointAddress                       */ 0x03u,
-/*  bmAttributes                           */ 0x03u,
-/*  wMaxPacketSize                         */ 0x02u, 0x00u,
-/*  bInterval                              */ 0x0Au
+/*  bInterval                              */ 0x02u
 };
 
 /*********************************************************************
 * String Descriptor Table
 *********************************************************************/
-const uint8 CYCODE USBFS_STRING_DESCRIPTORS[77u] = {
+const uint8 CYCODE USBFS_STRING_DESCRIPTORS[41u] = {
 /*********************************************************************
 * Language ID Descriptor
 *********************************************************************/
@@ -183,20 +128,6 @@ const uint8 CYCODE USBFS_STRING_DESCRIPTORS[77u] = {
 /* DescriptorType: STRING                  */ 0x03u,
  (uint8)'K', 0u,(uint8)'a', 0u,(uint8)'t', 0u,(uint8)'e', 0u,(uint8)'-', 0u,
  (uint8)'I', 0u,(uint8)'O', 0u,
-/*********************************************************************
-* String Descriptor: "Player 1"
-*********************************************************************/
-/* Descriptor Length                       */ 0x12u,
-/* DescriptorType: STRING                  */ 0x03u,
- (uint8)'P', 0u,(uint8)'l', 0u,(uint8)'a', 0u,(uint8)'y', 0u,(uint8)'e', 0u,
- (uint8)'r', 0u,(uint8)' ', 0u,(uint8)'1', 0u,
-/*********************************************************************
-* String Descriptor: "Player 2"
-*********************************************************************/
-/* Descriptor Length                       */ 0x12u,
-/* DescriptorType: STRING                  */ 0x03u,
- (uint8)'P', 0u,(uint8)'l', 0u,(uint8)'a', 0u,(uint8)'y', 0u,(uint8)'e', 0u,
- (uint8)'r', 0u,(uint8)' ', 0u,(uint8)'2', 0u,
 /*********************************************************************/
 /* Marks the end of the list.              */ 0x00u};
 /*********************************************************************/
@@ -213,7 +144,7 @@ const uint8 CYCODE USBFS_SN_STRING_DESCRIPTOR[2] = {
 /*********************************************************************
 * HID Report Descriptor: ITGIO
 *********************************************************************/
-const uint8 CYCODE USBFS_HIDREPORT_DESCRIPTOR1[26u] = {
+const uint8 CYCODE USBFS_HIDREPORT_DESCRIPTOR1[35u] = {
 /*  Descriptor Size (Not part of descriptor)*/ USBFS_HID_RPT_1_SIZE_LSB,
 USBFS_HID_RPT_1_SIZE_MSB,
 /* USAGE_PAGE                              */ 0x05u, 0x01u, 
@@ -221,24 +152,13 @@ USBFS_HID_RPT_1_SIZE_MSB,
 /* COLLECTION                              */ 0xA1u, 0x01u, 
 /* USAGE_PAGE                              */ 0x05u, 0x09u, 
 /* USAGE_MINIMUM                           */ 0x19u, 0x01u, 
-/* USAGE_MAXIMUM                           */ 0x29u, 0x10u, 
+/* USAGE_MAXIMUM                           */ 0x29u, 0x20u, 
 /* LOGICAL_MINIMUM                         */ 0x15u, 0x00u, 
 /* LOGICAL_MAXIMUM                         */ 0x25u, 0x01u, 
-/* REPORT_COUNT                            */ 0x95u, 0x10u, 
+/* REPORT_COUNT                            */ 0x95u, 0x20u, 
 /* REPORT_SIZE                             */ 0x75u, 0x01u, 
 /* INPUT                                   */ 0x81u, 0x02u, 
-/*********************************************************************/
-/* End of the HID Report Descriptor        */ 0x00u, 0x00u};
-/*********************************************************************/
-/*********************************************************************
-* HID Report Descriptor: LIGHTS
-*********************************************************************/
-const uint8 CYCODE USBFS_HIDREPORT_DESCRIPTOR2[17u] = {
-/*  Descriptor Size (Not part of descriptor)*/ USBFS_HID_RPT_2_SIZE_LSB,
-USBFS_HID_RPT_2_SIZE_MSB,
 /* USAGE_PAGE                              */ 0x05u, 0x08u, 
-/* USAGE                                   */ 0x09u, 0x4Bu, 
-/* COLLECTION                              */ 0xA1u, 0x00u, 
 /* REPORT_COUNT                            */ 0x95u, 0x10u, 
 /* REPORT_SIZE                             */ 0x75u, 0x01u, 
 /* OUTPUT                                  */ 0x91u, 0x20u, 
@@ -264,6 +184,21 @@ const T_USBFS_TD CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_I
     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_SCB},
 };
 /*********************************************************************
+* HID Output Report Storage
+*********************************************************************/
+T_USBFS_XFER_STATUS_BLOCK USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_RPT_SCB;
+uint8 USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_BUF[
+            USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_BUF_SIZE];
+
+/*********************************************************************
+* HID Output Report TD Table
+*********************************************************************/
+const T_USBFS_TD CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_RPT_TABLE[1u] = {
+    {USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_BUF_SIZE,
+    &USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_BUF[0u],
+    &USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_RPT_SCB},
+};
+/*********************************************************************
 * HID Report Look Up Table         This table has four entries:
 *                                        IN Report Table
 *                                        OUT Report Table
@@ -273,76 +208,12 @@ const T_USBFS_TD CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_I
 *********************************************************************/
 const T_USBFS_LUT CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE[5u] = {
     {0x00u,     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_TABLE},
-    {0x00u,    NULL},
+    {0x00u,     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_OUT_RPT_TABLE},
     {0x00u,    NULL},
     {0x01u,     (const void *)&USBFS_HIDREPORT_DESCRIPTOR1[0]},
     {0x01u,     (const void *)&USBFS_DEVICE0_CONFIGURATION0_DESCR[18]}
 };
 #endif /* USER_DEFINE_USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_HID_RPT_STORAGE */
-#if !defined(USER_DEFINE_USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_HID_RPT_STORAGE)
-/*********************************************************************
-* HID Input Report Storage
-*********************************************************************/
-T_USBFS_XFER_STATUS_BLOCK USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_RPT_SCB;
-uint8 USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_BUF[
-            USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_BUF_SIZE];
-
-/*********************************************************************
-* HID Input Report TD Table
-*********************************************************************/
-const T_USBFS_TD CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_RPT_TABLE[1u] = {
-    {USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_BUF_SIZE,
-    &USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_BUF[0u],
-    &USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_RPT_SCB},
-};
-/*********************************************************************
-* HID Report Look Up Table         This table has four entries:
-*                                        IN Report Table
-*                                        OUT Report Table
-*                                        Feature Report Table
-*                                        HID Report Descriptor
-*                                        HID Class Descriptor
-*********************************************************************/
-const T_USBFS_LUT CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_TABLE[5u] = {
-    {0x00u,     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_IN_RPT_TABLE},
-    {0x00u,    NULL},
-    {0x00u,    NULL},
-    {0x01u,     (const void *)&USBFS_HIDREPORT_DESCRIPTOR1[0]},
-    {0x01u,     (const void *)&USBFS_DEVICE0_CONFIGURATION0_DESCR[43]}
-};
-#endif /* USER_DEFINE_USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_HID_RPT_STORAGE */
-#if !defined(USER_DEFINE_USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_HID_RPT_STORAGE)
-/*********************************************************************
-* HID Output Report Storage
-*********************************************************************/
-T_USBFS_XFER_STATUS_BLOCK USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_OUT_RPT_SCB;
-uint8 USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_OUT_BUF[
-            USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_OUT_BUF_SIZE];
-
-/*********************************************************************
-* HID Output Report TD Table
-*********************************************************************/
-const T_USBFS_TD CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_OUT_RPT_TABLE[1u] = {
-    {USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_OUT_BUF_SIZE,
-    &USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_OUT_BUF[0u],
-    &USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_OUT_RPT_SCB},
-};
-/*********************************************************************
-* HID Report Look Up Table         This table has four entries:
-*                                        IN Report Table
-*                                        OUT Report Table
-*                                        Feature Report Table
-*                                        HID Report Descriptor
-*                                        HID Class Descriptor
-*********************************************************************/
-const T_USBFS_LUT CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_TABLE[5u] = {
-    {0x00u,    NULL},
-    {0x00u,     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_OUT_RPT_TABLE},
-    {0x00u,    NULL},
-    {0x01u,     (const void *)&USBFS_HIDREPORT_DESCRIPTOR2[0]},
-    {0x01u,     (const void *)&USBFS_DEVICE0_CONFIGURATION0_DESCR[68]}
-};
-#endif /* USER_DEFINE_USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_HID_RPT_STORAGE */
 
 /*********************************************************************
 * Interface Dispatch Table -- Points to the Class Dispatch Tables
@@ -352,46 +223,29 @@ const T_USBFS_LUT CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE[1u] = {
     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE}
 };
 /*********************************************************************
-* Interface Dispatch Table -- Points to the Class Dispatch Tables
-*********************************************************************/
-const T_USBFS_LUT CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_TABLE[1u] = {
-    {USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_COUNT, 
-    &USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_ALTERNATE0_HID_TABLE}
-};
-/*********************************************************************
-* Interface Dispatch Table -- Points to the Class Dispatch Tables
-*********************************************************************/
-const T_USBFS_LUT CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_TABLE[1u] = {
-    {USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_COUNT, 
-    &USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_ALTERNATE0_HID_TABLE}
-};
-/*********************************************************************
 * Endpoint Setting Table -- This table contain the endpoint setting
 *                           for each endpoint in the configuration. It
 *                           contains the necessary information to
 *                           configure the endpoint hardware for each
 *                           interface and alternate setting.
 *********************************************************************/
-const T_USBFS_EP_SETTINGS_BLOCK CYCODE USBFS_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE[3u] = {
+const T_USBFS_EP_SETTINGS_BLOCK CYCODE USBFS_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE[2u] = {
 /* IFC  ALT    EPAddr bmAttr MaxPktSize Class ********************/
-{0x00u, 0x00u, 0x81u, 0x03u, 0x0002u,   0x03u},
-{0x01u, 0x00u, 0x82u, 0x03u, 0x0002u,   0x03u},
-{0x02u, 0x00u, 0x03u, 0x03u, 0x0002u,   0x03u}
+{0x00u, 0x00u, 0x81u, 0x03u, 0x0004u,   0x03u},
+{0x00u, 0x00u, 0x02u, 0x03u, 0x0002u,   0x03u}
 };
-const uint8 CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE_CLASS[3u] = {
-0x03u, 0x03u, 0x03u
+const uint8 CYCODE USBFS_DEVICE0_CONFIGURATION0_INTERFACE_CLASS[1u] = {
+0x03u
 };
 /*********************************************************************
 * Config Dispatch Table -- Points to the Config Descriptor and each of
 *                          and endpoint setup table and to each
 *                          interface table if it specifies a USB Class
 *********************************************************************/
-const T_USBFS_LUT CYCODE USBFS_DEVICE0_CONFIGURATION0_TABLE[6u] = {
+const T_USBFS_LUT CYCODE USBFS_DEVICE0_CONFIGURATION0_TABLE[4u] = {
     {0x01u,     &USBFS_DEVICE0_CONFIGURATION0_DESCR},
-    {0x03u,     &USBFS_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE},
+    {0x02u,     &USBFS_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE},
     {0x01u,     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE},
-    {0x01u,     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE1_TABLE},
-    {0x01u,     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE2_TABLE},
     {0x00u,     &USBFS_DEVICE0_CONFIGURATION0_INTERFACE_CLASS}
 };
 /*********************************************************************
