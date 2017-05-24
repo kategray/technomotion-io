@@ -1,5 +1,19 @@
 # Temporary code generation
 IOPCB.cydsn/codegentemp/
 
-# Binaries
-IOPCB.cydsn/CortexM3/
+# Cypress Artifacts
+**/CortexM3/
+**/Backup/
+**/codegentemp/
+**/CortexM0/
+**/Export/
+**/Generated_Source/
+*.cycdx
+*.cyfit
+*.cywrk.*
+*.cyprj.*
+*.svd
+*.uvopt
+*.html
+*.rpt
+*.txt
