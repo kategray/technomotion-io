@@ -21,8 +21,6 @@ CY_ISR_PROTO(bootloaderISR);
 // These variables hold the input for the players
 INPUTS input;
 
-uint8 bootload = 0;
-
 int main()
 {
     // ISR Checks if we're supposed to go into the bootloader
@@ -73,14 +71,10 @@ int main()
             USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input, sizeof(INPUTS));
         }
         
-        // This flag is set by the ISR
-        if (bootload) {
-            Bootloadable_Load();
-        }
     }
 }
 
 CY_ISR(bootloaderISR)
 {   
-    bootload = 1;
+    Bootloadable_Load();
 }
