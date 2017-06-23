@@ -267,8 +267,8 @@
   </Group>
   <Group key="Component">
     <Group key="v1">
-      <Data key="cy_boot" value="cy_boot_v5_50" />
-      <Data key="LIN_Dynamic" value="LIN_Dynamic_v3_40" />
+      <Data key="cy_boot" value="cy_boot_v5_60" />
+      <Data key="LIN_Dynamic" value="LIN_Dynamic_v4_0" />
     </Group>
   </Group>
   <Data key="DataVersionKey" value="2" />
@@ -279,6 +279,7 @@
     <Group key="Pin">
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="UP" />
       <Data key="8dacd0b7-e39e-4682-8889-554b2b84e0ca" value="LEFT" />
+      <Data key="05763a26-9ab7-4e6b-821e-6b4060490b91" value="Pin_BL" />
       <Data key="47700890-8c9d-43db-9b38-806a525d95c1" value="DOWN" />
       <Data key="ba0cbc03-76d7-4965-9772-0d821a2a8408/8b77a6c4-10a0-4390-971c-672353e2a49c" value="USBFS_Dm" />
       <Data key="ba0cbc03-76d7-4965-9772-0d821a2a8408/618a72fc-5ddd-4df5-958f-a3d55102db42" value="USBFS_Dp" />
@@ -3397,6 +3398,11 @@
       </Group>
       <Group key="3">
         <Data key="Port Format" value="3,3" />
+      </Group>
+    </Group>
+    <Group key="05763a26-9ab7-4e6b-821e-6b4060490b91">
+      <Group key="0">
+        <Data key="Port Format" value="12,0" />
       </Group>
     </Group>
     <Group key="47700890-8c9d-43db-9b38-806a525d95c1">
