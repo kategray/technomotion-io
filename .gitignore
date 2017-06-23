@@ -17,3 +17,8 @@ IOPCB.cydsn/codegentemp/
 *.html
 *.rpt
 *.txt
+
+## Visual Studio artifacts
+**/bin/
+**/obj/
+**/.vs/
