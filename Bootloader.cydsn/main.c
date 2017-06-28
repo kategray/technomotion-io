@@ -45,7 +45,7 @@ int main()
 #if (CY_PSOC4)
     RGB_LED_ON_RED;
 #else
-    TURN_ON_LED4;
+    TURN_ON_LED1;
 #endif /* (CY_PSOC4) */
 
     /* Enters the bootloader to wait for the application update. */

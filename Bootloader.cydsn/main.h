@@ -62,9 +62,9 @@
 
 #else
 /* Turn on LED1 */
-#define TURN_ON_LED4 \
+#define TURN_ON_LED1 \
             do {     \
-                LED4_Write(1u); \
+                LED1_Write(1u); \
             }while(0)
 #endif /* (CY_PSOC4) */
 
