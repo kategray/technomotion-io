@@ -1,5 +1,5 @@
 /**
- * Stupid IO Device
+ * GHETT-iO
  *
  * Handles a single DDR pad, using only a PSoC 5LP dev board
  */
@@ -16,6 +16,9 @@
 // Endpoints 
 #define IN_ENDPOINT   1u    // Inputs
 
+// ISR Definition
+CY_ISR_PROTO(bootloaderISR);
+
 // These variables hold the input for the players
 INPUTS input;
 
@@ -30,6 +33,15 @@ int main()
     
     // Enable interrupts (macro for an inline ASM instruction)
     CyGlobalIntEnable;
+    
+    /*
+    uint8 feature_buffer[5] = {0x12, 0x34, 0x56, 0x78, 0x00};
+    memcpy(
+        USBFS_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_FEATURE_BUF,
+        feature_buffer, 
+        sizeof(feature_buffer)
+    );
+    */
     
     // Zero out the player array.  The reset interrupt (in CM3Start.c) calls the Start_C function
     // which loops through all the defined sections, initializing memory from flash for predefined
@@ -47,7 +59,7 @@ int main()
     
     // Begin USB traffic
     USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input, sizeof(INPUTS));    
-
+    
     // Loop until power is lost
     for (;;) {
         // Check for acknowledgements from the PC
@@ -62,6 +74,7 @@ int main()
         if (runBootloader) {
             Bootloadable_Load();
         }
+        
     }
 }
 
