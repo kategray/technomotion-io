@@ -64,17 +64,11 @@ int main()
     for (;;) {
         // Check for acknowledgements from the PC
         if (USBFS_bGetEPAckState(IN_ENDPOINT) != 0) {
-            // Input acknowledged, so copy the low and high bits into the player data structure
-            // Inputs are active low, so we have to invert them.
-            uint8 input_data[] = {SR_ARROWS_Read()};
+            // Copy the inputs from the status register to the USB buffer
+            // Inputs are active low, so we invert them in hardware
+            uint8 input_data = SR_ARROWS_Read();
             USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input_data, sizeof(INPUTS));
         }
-        
-        // Run the Bootloader if it's enabled
-        if (runBootloader) {
-            Bootloadable_Load();
-        }
-        
     }
 }
 
@@ -91,7 +85,7 @@ CY_ISR(CHECK_BL) {
         isr_BL_ClearPending();
         isr_BL_Disable();
         
-        // Flag the bootloader for run
-        runBootloader = 1;
+        // Run the bootloader
+        Bootloadable_Load();
     }
 }
