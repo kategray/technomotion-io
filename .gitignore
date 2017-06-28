@@ -17,3 +17,5 @@ IOPCB.cydsn/codegentemp/
 *.html
 *.rpt
 *.txt
+*.log
+*.pdf

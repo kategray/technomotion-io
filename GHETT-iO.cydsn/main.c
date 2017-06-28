@@ -5,6 +5,7 @@
  */
 #include <project.h>
 #include <stdio.h>
+#include "main.h"
 
 // Input data structures
 #include "io.h"
@@ -18,8 +19,15 @@
 // These variables hold the input for the players
 INPUTS input;
 
+// Should we run the bootloader?
+CYBIT runBootloader = 0;
+
 int main()
 {
+    // Periodically check to see if we should enter the bootloader
+    isr_BL_ClearPending();
+    isr_BL_StartEx(CHECK_BL);
+    
     // Enable interrupts (macro for an inline ASM instruction)
     CyGlobalIntEnable;
     
@@ -46,10 +54,31 @@ int main()
         if (USBFS_bGetEPAckState(IN_ENDPOINT) != 0) {
             // Input acknowledged, so copy the low and high bits into the player data structure
             // Inputs are active low, so we have to invert them.
-            uint8 input_data[] = {(~SR_ARROWS_Read()) & 0b00001111};
-            memcpy (&input, &input_data, sizeof(INPUTS));
-
-            USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input, sizeof(INPUTS));
+            uint8 input_data[] = {SR_ARROWS_Read()};
+            USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input_data, sizeof(INPUTS));
         }
+        
+        // Run the Bootloader if it's enabled
+        if (runBootloader) {
+            Bootloadable_Load();
+        }
+    }
+}
+
+/*
+ * ISR to check if the Bootloader should run.  We keep this out of the main() loop for
+ * performance reasons.
+ */
+CY_ISR(CHECK_BL) {
+    static uint8 trigger[FEATURE_BUFFER_LEN] = BOOTLOADER_TRIGGER;
+    
+    // Should we invoke the bootloader?
+    if (!memcmp(FEATURE_BUFFER, trigger, FEATURE_BUFFER_LEN)) {
+        // Clear the ISR
+        isr_BL_ClearPending();
+        isr_BL_Disable();
+        
+        // Flag the bootloader for run
+        runBootloader = 1;
     }
 }
