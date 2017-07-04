@@ -31,6 +31,15 @@ namespace Bootloader_Host
             if (bl.ScanForDevices() == BootloaderStatus.Production)
             {
                 changeState(State.Production);
+
+                // Look for a product version
+                String version = bl.GetDeviceVersion();
+
+                if (version)
+                {
+
+                }
+
                 bl.SwitchToBootloader();
             }
         }

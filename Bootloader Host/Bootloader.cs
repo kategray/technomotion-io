@@ -36,6 +36,19 @@ namespace Bootloader_Host
             return BootloaderStatus.NoDevice;
         }
 
+        public String GetDeviceVersion()
+        {
+            if (this.ghettIO.Version == 0x3000)
+            {
+                return null;
+            }
+            ushort version = this.ghettIO.Version;
+            byte upper = (byte)(version >> 8);
+            byte lower = (byte)(version & 0xff);
+
+            return String.Format("v{0:X}.{1:X}", upper, lower);
+        }
+
         public BootloaderStatus SwitchToBootloader()
         {
             bool bResult = false;
@@ -57,8 +70,6 @@ namespace Bootloader_Host
             {
                 return BootloaderStatus.NoDevice;
             }
-
-
 
             return BootloaderStatus.NoDevice;
             //CyHidValue BootloaderFeature = ghettIO.GetFeature()
