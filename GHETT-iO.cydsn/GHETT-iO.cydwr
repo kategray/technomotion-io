@@ -277,9 +277,12 @@
       <Data key="8af271b8-02da-491e-b5e2-d2dec387f26d" value="Clock_Debounce" />
     </Group>
     <Group key="Pin">
+      <Data key="02f2cf2c-2c7a-49df-9246-7a3435c21be3" value="SCL_1" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="UP" />
       <Data key="8dacd0b7-e39e-4682-8889-554b2b84e0ca" value="LEFT" />
       <Data key="05763a26-9ab7-4e6b-821e-6b4060490b91" value="Pin_BL" />
+      <Data key="22863ebe-a37b-476f-b252-6e49a8c00b12" value="SDA_1" />
+      <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="RST_1" />
       <Data key="47700890-8c9d-43db-9b38-806a525d95c1" value="DOWN" />
       <Data key="ba0cbc03-76d7-4965-9772-0d821a2a8408/8b77a6c4-10a0-4390-971c-672353e2a49c" value="USBFS_Dm" />
       <Data key="ba0cbc03-76d7-4965-9772-0d821a2a8408/618a72fc-5ddd-4df5-958f-a3d55102db42" value="USBFS_Dp" />
@@ -3372,6 +3375,11 @@
     </Group>
   </Group>
   <Group key="Pin2">
+    <Group key="02f2cf2c-2c7a-49df-9246-7a3435c21be3">
+      <Group key="0">
+        <Data key="Port Format" value="1,1" />
+      </Group>
+    </Group>
     <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
       <Group key="0">
         <Data key="Port Format" value="1,4" />
@@ -3462,7 +3470,7 @@
     <Data key="CYDEV_CONFIG_FASTBOOT_ENABLED" value="True" />
     <Data key="CYDEV_CONFIG_UNUSED_IO" value="AllowButWarn" />
     <Data key="CYDEV_CONFIGURATION_ECC" value="True" />
-    <Data key="CYDEV_CONFIGURATION_MODE" value="COMPRESSED" />
+    <Data key="CYDEV_CONFIGURATION_MODE" value="UNCOMPRESSED" />
     <Data key="CYDEV_DEBUGGING_DPS" value="SWD_SWV" />
     <Data key="CYDEV_DEBUGGING_XRES" value="False" />
     <Data key="CYDEV_ECC_ENABLE" value="False" />
