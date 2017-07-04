@@ -18,6 +18,12 @@
  * resistors permit the PSoC to be configured to handle all of the inputs
  * without the need to add any additional hardware to the board except
  * connectors.
+ *
+ * Copyright 2017, Kate Gray
+ *
+ * This work is free. You can redistribute it and/or modify it under the
+ * terms of the Do What The Fuck You Want To Public License, Version 2,
+ * as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
  */
 #include <project.h>
 #include <stdio.h>
@@ -26,7 +32,8 @@
 // Input data structures
 #include "io.h"
 
-// If multiple descriptors were defined, we could use them
+// At the moment, we have only one USB descriptor.
+// Future versions (multi-pad) will need to support additional descriptors.
 #define USBFS_DESCRIPTOR 0u
 
 // Endpoints 
@@ -41,7 +48,7 @@ CYBIT runBootloader = 0;
 #endif
 
 // Holds player input
-volatile INPUTS input;
+INPUTS input;
 
 int main()
 {
@@ -111,53 +118,11 @@ int main()
     // copy the data to a buffer, and it would be necessary to periodically fill the buffer.
     USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input, sizeof(INPUTS));
     
-    // The default behaviour of the USBFS is intended for situations where there is a finite amount of input
-    // (for example, an ADC at a fixed clock).  As such, it configures a TD to terminate as soon as the buffer
-    // is exhausted.  Additionally, the USBFS component does not make available a hardware trigger for an ISR
-    // to replenish the buffer.  This effectively requires the use of the CPU in order to fill the buffer for
-    // USB requests.
-    // USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(INPUTS));
+    // Prime the pump, starting a DMA transfer.  The buffer will be replenished by the endpoint exit callback
+    USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(INPUTS));
     
-    /*
-    // Disable the DMA channel
-    CyDmaChDisable (USBFS_DmaChan[IN_ENDPOINT]);
-    
-    // Clear any pending event flags
-    USBFS_EP[IN_ENDPOINT].apiEpState = USBFS_NO_EVENT_PENDING;
-    
-    // Store the length and clear the full flag
-    USBFS_inLength[IN_ENDPOINT]  = sizeof(INPUTS);
-    USBFS_inBufFull[IN_ENDPOINT] = 0u;
-    
-    // Configure the TD to loop indefinitely
-    CyDmaTdSetConfiguration (USBFS_DmaTd[IN_ENDPOINT], DMA_INPUTS_TD_TRANSFER_INDEFINITELY, 
-        USBFS_DmaTd[IN_ENDPOINT], DMA_INPUTS__TD_TERMOUT_EN);
-    
-    // Set the lower bits of the target address for the TD.
-    CyDmaTdSetAddress (
-        USBFS_DmaTd[IN_ENDPOINT],       // Set the TD configuration for the primary endpoint
-        LO16((uint32) &input),          // Copy from input
-        LO16((uint32) &USBFS_ARB_EP_BASE.arbEp[IN_ENDPOINT].rwDr)   // Copy to the USBFS registers to go out
-    );
-    
-    // Clear pending DMA requests
-    CyDmaClearPendingDrq (USBFS_DmaChan[IN_ENDPOINT]);
-    
-    // Set the starting TD, and start it
-    CyDmaChSetInitialTd (USBFS_DmaChan[IN_ENDPOINT], USBFS_DmaTd[IN_ENDPOINT]);
-    CyDmaChEnable (USBFS_DmaChan[IN_ENDPOINT], 1u);
-    
-    // Set the DMA data ready flag
-    USBFS_ARB_EP_BASE.arbEp[IN_ENDPOINT].epCfg |= USBFS_ARB_EPX_CFG_IN_DATA_RDY;
-    
-    // Arm the DMA endpoint
-    USBFS_SIE_EP_BASE.sieEp[IN_ENDPOINT].epCr0 = USBFS_EP[IN_ENDPOINT].epMode;
-    */
-    // Loop until power is lost
-    for (;;) {
-        if (USBFS_GetEPState(1) == USBFS_IN_BUFFER_EMPTY) {
-            USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(INPUTS));
-        }
+    // Loop indefinitely
+    for(;;) {
     }
 }
 
@@ -178,3 +143,14 @@ CY_ISR(Check_BL) {
     }
 }
 #endif
+
+/*
+ * Callback for when USB endpoint one is processed
+ */
+void USBFS_EP_1_ISR_ExitCallback() {
+    // Is our USB buffer empty?
+    if (USBFS_GetEPState(IN_ENDPOINT) == USBFS_IN_BUFFER_EMPTY) {
+        // Re-arm the DMA to re-fill the buffer
+        USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(INPUTS));
+    }    
+}

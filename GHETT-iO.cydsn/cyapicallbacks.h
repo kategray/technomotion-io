@@ -1,19 +1,16 @@
-/* ========================================
+/*
+ * Copyright 2017, Kate Gray
  *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
+ * This work is free. You can redistribute it and/or modify it under the
+ * terms of the Do What The Fuck You Want To Public License, Version 2,
+ * as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
+ */
 #ifndef CYAPICALLBACKS_H
-#define CYAPICALLBACKS_H
     
-    /*Define your macro callbacks here */
-    /*For more information, refer to the Macro Callbacks topic in the PSoC Creator Help.*/
-    
+// Enable the USBFS endpoint callback
+#define USBFS_EP_1_ISR_EXIT_CALLBACK
+extern void USBFS_EP_1_ISR_ExitCallback();
+
+#define CYAPICALLBACKS_H    
 #endif /* CYAPICALLBACKS_H */   
 /* [] */
