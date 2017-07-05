@@ -8,10 +8,14 @@
 
     * Increased debounce poll rate
 
-2017-07-04  v1.2 Kate Gray  <opensource@codebykate.com>
+2017-07-04  v2.0 Kate Gray  <opensource@codebykate.com>
 
     * Switched to Direct Memory Access and ISRs for minimum latency
 
     * Added option to see firmware version of current GHETT-iO
 
     * Further increased debounce poll rate
+
+    * Address issue where device resets when used in a pad
+
+    * Change pin configuration to support future accessories

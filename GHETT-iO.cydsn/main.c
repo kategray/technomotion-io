@@ -61,7 +61,7 @@ int main()
     uint8 DMA_INPUTS_TD[1];
     
     // Allocate the DMA chanel, with bursts of 1 byte, and store the channel number
-    DMA_INPUTS_Chan = DMA_INPUTS_DmaInitialize(DMA_INPUTS_BYTES_PER_BURST, DMA_INPUTS_REQUEST_PER_BURST, 
+    DMA_INPUTS_Chan = DMA_Inputs_DmaInitialize(DMA_INPUTS_BYTES_PER_BURST, DMA_INPUTS_REQUEST_PER_BURST, 
     HI16(DMA_INPUTS_SRC_BASE), HI16(DMA_INPUTS_DST_BASE));
     
     // Allocate the transaction descriptor and configure it to copy from the peripheral (status register)
@@ -70,8 +70,8 @@ int main()
     // input address.
     DMA_INPUTS_TD[0] = CyDmaTdAllocate();
     CyDmaTdSetConfiguration(DMA_INPUTS_TD[0], DMA_INPUTS_TD_TRANSFER_INDEFINITELY, 
-        DMA_INPUTS_TD[0], DMA_INPUTS__TD_TERMOUT_EN);
-    CyDmaTdSetAddress(DMA_INPUTS_TD[0], LO16((uint32)SR_INPUTS_Status_PTR), LO16((uint32)&input));
+        DMA_INPUTS_TD[0], DMA_Inputs__TD_TERMOUT_EN);
+    CyDmaTdSetAddress(DMA_INPUTS_TD[0], LO16((uint32)SR_Inputs_Status_PTR), LO16((uint32)&input));
     
     // Configure our TD to be the first TD in the "chain" and enable it.
     CyDmaChSetInitialTd(DMA_INPUTS_Chan, DMA_INPUTS_TD[0]);
@@ -84,7 +84,7 @@ int main()
     #endif
         
     // Configure the Status Register interrupts
-    SR_INPUTS_InterruptEnable();
+    SR_Inputs_InterruptEnable();
     
     // Enable interrupts (macro for an inline ASM instruction)
     CyGlobalIntEnable;
