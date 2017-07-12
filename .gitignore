@@ -21,4 +21,7 @@ Bootloader Host/obj/
 *.rpt
 *.txt
 *.log
-*.pdf
+*.cydsn/*.pdf
+
+# Office temporary files
+~*.*
