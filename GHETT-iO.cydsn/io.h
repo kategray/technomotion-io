@@ -9,15 +9,24 @@
      */
     #include <project.h>
     
+    // Represents the inputs from the pad
     typedef struct __attribute__((packed)) {
-        uint8 PAD_UP : 1;
-        uint8 PAD_DOWN : 1;
-        uint8 PAD_LEFT : 1;
-        uint8 PAD_RIGHT : 1;
-        uint8 START : 1;
-        uint8 SELECT : 1;
-        uint8 COIN : 1;
-        uint8 SERVICE : 1;
-    } INPUTS;
+        uint8 pad_up : 1;
+        uint8 pad_down : 1;
+        uint8 pad_left : 1;
+        uint8 pad_right : 1;
+        uint8 start : 1;
+        uint8 select : 1;
+        uint8 coin : 1;
+        uint8 service : 1;
+    } input;
+    
+    // Represents the outputs from the pad
+    typedef struct __attribute__((packed)) {
+        uint8 light_up: 1;
+        uint8 light_down: 1;
+        uint8 light_left: 1;
+        uint8 light_right: 1;
+    } output;
 #define IO_H
 #endif
