@@ -27,5 +27,6 @@ CY_ISR_PROTO(Check_BL);
 #define DMA_INPUTS_SRC_BASE (CYDEV_PERIPH_BASE)     // Base address for the source
 #define DMA_INPUTS_DST_BASE (CYDEV_SRAM_BASE)       // Base address for the destination
 #define DMA_INPUTS_TD_TRANSFER_INDEFINITELY 0       // Continue DMA indefinitely
-    
+
+#define MAIN_H
 #endif /* MAIN_H */
