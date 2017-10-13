@@ -1,10 +1,22 @@
-/*
- * Copyright 2017, Kate Gray
- *
- * This work is free. You can redistribute it and/or modify it under the
- * terms of the Do What The Fuck You Want To Public License, Version 2,
- * as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
- */
+/*******************************************************************************
+* File Name: main.c
+*
+* Version: 3.0
+*
+* Description:
+*  This example project demonstrates the basic operation of the Bootloader and 
+*  Bootloadable components when the communication interface is a USB.
+*
+********************************************************************************
+* Copyright 2015, Cypress Semiconductor Corporation. All rights reserved.
+* This software is owned by Cypress Semiconductor Corporation and is protected
+* by and subject to worldwide patent and copyright laws and treaties.
+* Therefore, you may use this software only as provided in the license agreement
+* accompanying the software package from which you obtained this software.
+* CYPRESS AND ITS SUPPLIERS MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+* WITH REGARD TO THIS SOFTWARE, INCLUDING, BUT NOT LIMITED TO, NONINFRINGEMENT,
+* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+*******************************************************************************/
 
 #include <main.h>
 

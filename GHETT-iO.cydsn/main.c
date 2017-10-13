@@ -32,9 +32,6 @@
 // Input data structures
 #include "io.h"
 
-// Configuration
-#include "config.h"
-
 // At the moment, we have only one USB descriptor.
 // Future versions (multi-pad) will need to support additional descriptors.
 #define USBFS_DESCRIPTOR 0u
@@ -51,7 +48,7 @@ CYBIT runBootloader = 0;
 #endif
 
 // Holds player input
-input_single input;
+INPUTS input;
 
 int main()
 {
@@ -62,9 +59,6 @@ int main()
     // Transaction Descriptor.
     // Stores configuration for a DMA transfer.  Can be chained within a DMA channel.
     uint8 DMA_INPUTS_TD[1];
-    
-    // Initialize the configuration before proceeding
-    config_initialize();
     
     // Allocate the DMA chanel, with bursts of 1 byte, and store the channel number
     DMA_INPUTS_Chan = DMA_Inputs_DmaInitialize(DMA_INPUTS_BYTES_PER_BURST, DMA_INPUTS_REQUEST_PER_BURST, 
@@ -101,7 +95,7 @@ int main()
     // initialized variables).  Afterwards, it initializes the remainder of the memory with zeros.
     // On top of that, this is going to be initialized from the status register by DMA, and the
     // value is not particularly important.
-    memset((uint8*)&input, 0u, sizeof(input_single));
+    memset((uint8*)&input, 0u, sizeof(INPUTS));
     
     // Start up USB and wait for enumeration.
     USBFS_Start(USBFS_DESCRIPTOR, USBFS_5V_OPERATION);
@@ -122,10 +116,10 @@ int main()
     // Because DMA is enabled, this function will automatically configure the USBFS_EP1 DMA channel (channel
     // 0) for transfers from SRAM to the SIE, starting at &input.  If DMA were disabled, this would instead
     // copy the data to a buffer, and it would be necessary to periodically fill the buffer.
-    USBFS_LoadInEP(IN_ENDPOINT, (uint8_t*)&input, sizeof(input_single));
+    USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input, sizeof(INPUTS));
     
     // Prime the pump, starting a DMA transfer.  The buffer will be replenished by the endpoint exit callback
-    USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(input_single));
+    USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(INPUTS));
     
     // Loop indefinitely
     for(;;) {
@@ -157,6 +151,6 @@ void USBFS_EP_1_ISR_ExitCallback() {
     // Is our USB buffer empty?
     if (USBFS_GetEPState(IN_ENDPOINT) == USBFS_IN_BUFFER_EMPTY) {
         // Re-arm the DMA to re-fill the buffer
-        USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(input_single));
+        USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(INPUTS));
     }    
 }
