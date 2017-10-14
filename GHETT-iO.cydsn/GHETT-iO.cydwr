@@ -277,6 +277,7 @@
       <Data key="8af271b8-02da-491e-b5e2-d2dec387f26d" value="Clock_Debounce" />
     </Group>
     <Group key="Pin">
+<<<<<<< HEAD
       <Data key="0c3ab45f-320c-4718-8cee-7631bf96ade2" value="Pin_Up" />
       <Data key="6b14f610-0203-496f-ba83-ed46e801d2c5" value="Pin_Right" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="UpD" />
@@ -290,6 +291,23 @@
       <Data key="d99c484c-a203-4eb6-86b9-0409384e58a1" value="Right_VSS" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Down_VSS" />
       <Data key="f05ff8e0-3a54-41b1-a963-fd12f4ddc80e" value="Pin_Left" />
+=======
+      <Data key="5fba8bb5-2a8a-4fe8-a4b3-60820a754893" value="OUT_Left" />
+      <Data key="7c600747-aadb-4cc3-bd63-0575ec2037ee" value="OUT_Down" />
+      <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="INP_Up" />
+      <Data key="8dacd0b7-e39e-4682-8889-554b2b84e0ca" value="INP_Left" />
+      <Data key="60e91b44-0537-49c1-9f1c-a7a40c4c3246" value="OUT_Up" />
+      <Data key="99e1ab7e-95d5-4d80-8514-b4f561755eda" value="INP_Select" />
+      <Data key="05763a26-9ab7-4e6b-821e-6b4060490b91" value="Pin_BL" />
+      <Data key="47700890-8c9d-43db-9b38-806a525d95c1" value="INP_Down" />
+      <Data key="69472241-85e2-4256-a9fd-5cfa65beb29f" value="INP_Start" />
+      <Data key="ba0cbc03-76d7-4965-9772-0d821a2a8408/8b77a6c4-10a0-4390-971c-672353e2a49c" value="USBFS_Dm" />
+      <Data key="ba0cbc03-76d7-4965-9772-0d821a2a8408/618a72fc-5ddd-4df5-958f-a3d55102db42" value="USBFS_Dp" />
+      <Data key="c84917d8-dd32-400b-a421-4a08049a4cd4" value="INP_Right" />
+      <Data key="d99c484c-a203-4eb6-86b9-0409384e58a1" value="VSS_Right" />
+      <Data key="e14cb54a-35bb-43b0-acb1-5051c8fd97a8" value="OUT_Right" />
+      <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="VSS_Down" />
+>>>>>>> origin/master
     </Group>
   </Group>
   <Group key="EEPROM">
@@ -3376,6 +3394,7 @@
     </Group>
   </Group>
   <Group key="Pin2">
+<<<<<<< HEAD
     <Group key="0c3ab45f-320c-4718-8cee-7631bf96ade2">
       <Group key="0">
         <Data key="Port Format" value="1,2" />
@@ -3384,6 +3403,16 @@
     <Group key="6b14f610-0203-496f-ba83-ed46e801d2c5">
       <Group key="0">
         <Data key="Port Format" value="0,5" />
+=======
+    <Group key="5fba8bb5-2a8a-4fe8-a4b3-60820a754893">
+      <Group key="0">
+        <Data key="Port Format" value="3,5" />
+      </Group>
+    </Group>
+    <Group key="7c600747-aadb-4cc3-bd63-0575ec2037ee">
+      <Group key="0">
+        <Data key="Port Format" value="2,7" />
+>>>>>>> origin/master
       </Group>
     </Group>
     <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
@@ -3414,9 +3443,20 @@
         <Data key="Port Format" value="3,3" />
       </Group>
     </Group>
+<<<<<<< HEAD
     <Group key="97eefe32-e0ca-45d8-a715-b0f2b11cc5e8">
       <Group key="0">
         <Data key="Port Format" value="2,7" />
+=======
+    <Group key="60e91b44-0537-49c1-9f1c-a7a40c4c3246">
+      <Group key="0">
+        <Data key="Port Format" value="1,2" />
+      </Group>
+    </Group>
+    <Group key="99e1ab7e-95d5-4d80-8514-b4f561755eda">
+      <Group key="0">
+        <Data key="Port Format" value="12,4" />
+>>>>>>> origin/master
       </Group>
     </Group>
     <Group key="05763a26-9ab7-4e6b-821e-6b4060490b91">
@@ -3436,6 +3476,11 @@
       </Group>
       <Group key="3">
         <Data key="Port Format" value="2,5" />
+      </Group>
+    </Group>
+    <Group key="69472241-85e2-4256-a9fd-5cfa65beb29f">
+      <Group key="0">
+        <Data key="Port Format" value="12,1" />
       </Group>
     </Group>
     <Group key="ba0cbc03-76d7-4965-9772-0d821a2a8408/8b77a6c4-10a0-4390-971c-672353e2a49c">
@@ -3465,6 +3510,11 @@
     <Group key="d99c484c-a203-4eb6-86b9-0409384e58a1">
       <Group key="0">
         <Data key="Port Format" value="15,5" />
+      </Group>
+    </Group>
+    <Group key="e14cb54a-35bb-43b0-acb1-5051c8fd97a8">
+      <Group key="0">
+        <Data key="Port Format" value="0,5" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">

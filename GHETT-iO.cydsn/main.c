@@ -29,8 +29,11 @@
 #include <stdio.h>
 #include "main.h"
 
-// Input data structures
+// I/O data structures
 #include "io.h"
+
+// Configuration functionality
+#include "config.h"
 
 // At the moment, we have only one USB descriptor.
 // Future versions (multi-pad) will need to support additional descriptors.
@@ -39,16 +42,8 @@
 // Endpoints 
 #define IN_ENDPOINT   1u    // Inputs
 
-#ifdef Bootloadable_GET_RUN_TYPE
-// Bootloader ISR Definition
-CY_ISR_PROTO(bootloaderISR);
-
-// Bootloader invocation flag
-CYBIT runBootloader = 0;
-#endif
-
 // Holds player input
-INPUTS input;
+input inputs;
 
 int main()
 {
@@ -71,23 +66,26 @@ int main()
     DMA_INPUTS_TD[0] = CyDmaTdAllocate();
     CyDmaTdSetConfiguration(DMA_INPUTS_TD[0], DMA_INPUTS_TD_TRANSFER_INDEFINITELY, 
         DMA_INPUTS_TD[0], DMA_Inputs__TD_TERMOUT_EN);
-    CyDmaTdSetAddress(DMA_INPUTS_TD[0], LO16((uint32)SR_Inputs_Status_PTR), LO16((uint32)&input));
+    CyDmaTdSetAddress(DMA_INPUTS_TD[0], LO16((uint32)SR_Inputs_Status_PTR), LO16((uint32)&inputs));
     
     // Configure our TD to be the first TD in the "chain" and enable it.
     CyDmaChSetInitialTd(DMA_INPUTS_Chan, DMA_INPUTS_TD[0]);
     CyDmaChEnable(DMA_INPUTS_Chan, 1);
     
-    #ifdef Bootloadable_GET_RUN_TYPE
+    #ifdef Bootloadable_GET_RUN_TYPE    // Used to determine if the bootloader component is enabled
     // Periodically (10 times per second) check to see if we should enter the bootloader.
     isr_BL_ClearPending();
     isr_BL_StartEx(Check_BL);
     #endif
-        
+            
     // Configure the Status Register interrupts
     SR_Inputs_InterruptEnable();
-    
+        
     // Enable interrupts (macro for an inline ASM instruction)
     CyGlobalIntEnable;
+    
+    // Initialize the configuration by reading it from the EEPROM
+    config_init();
     
     // Zero out the player array.  This is really not needed, but it's still a good habit.
     // The reset interrupt (in CM3Start.c) calls the Start_C function which loops through all 
@@ -95,7 +93,7 @@ int main()
     // initialized variables).  Afterwards, it initializes the remainder of the memory with zeros.
     // On top of that, this is going to be initialized from the status register by DMA, and the
     // value is not particularly important.
-    memset((uint8*)&input, 0u, sizeof(INPUTS));
+    memset((uint8*)&inputs, 0u, sizeof(input));
     
     // Start up USB and wait for enumeration.
     USBFS_Start(USBFS_DESCRIPTOR, USBFS_5V_OPERATION);
@@ -116,41 +114,23 @@ int main()
     // Because DMA is enabled, this function will automatically configure the USBFS_EP1 DMA channel (channel
     // 0) for transfers from SRAM to the SIE, starting at &input.  If DMA were disabled, this would instead
     // copy the data to a buffer, and it would be necessary to periodically fill the buffer.
-    USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&input, sizeof(INPUTS));
+    USBFS_LoadInEP(IN_ENDPOINT, (uint8*)&inputs, sizeof(input));
     
     // Prime the pump, starting a DMA transfer.  The buffer will be replenished by the endpoint exit callback
-    USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(INPUTS));
+    USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(input));
     
     // Loop indefinitely
     for(;;) {
     }
 }
 
-#ifdef Bootloadable_GET_RUN_TYPE
-// ISR to check if the Bootloader should run.  We keep this out of the main() loop for
-// performance reasons.
-CY_ISR(Check_BL) {
-    static uint8 trigger[FEATURE_BUFFER_LEN] = BOOTLOADER_TRIGGER;
-    
-    // Should we invoke the bootloader?
-    if (!memcmp(FEATURE_BUFFER, trigger, FEATURE_BUFFER_LEN)) {
-        // Clear the ISR
-        isr_BL_ClearPending();
-        isr_BL_Disable();
-        
-        // Run the bootloader
-        Bootloadable_Load();
-    }
-}
-#endif
-
 /*
- * Callback for when USB endpoint one is processed
+ * Callback for when USB endpoint one (inputs) is processed
  */
 void USBFS_EP_1_ISR_ExitCallback() {
     // Is our USB buffer empty?
     if (USBFS_GetEPState(IN_ENDPOINT) == USBFS_IN_BUFFER_EMPTY) {
         // Re-arm the DMA to re-fill the buffer
-        USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(INPUTS));
+        USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(input));
     }    
 }
