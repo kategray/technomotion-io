@@ -21,7 +21,4 @@ Firmware Upgrader/obj/
 *.rpt
 *.txt
 *.log
-*.cydsn/*.pdf
-
-# Office temporary files
-~*.*
+*.pdf
