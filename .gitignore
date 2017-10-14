@@ -1,8 +1,8 @@
 # Temporary code generation
 IOPCB.cydsn/codegentemp/
-Bootloader Host/.vs/
-Bootloader Host/bin/
-Bootloader Host/obj/
+Firmware Upgrader/.vs/
+Firmware Upgrader/bin/
+Firmware Upgrader/obj/
 
 # Cypress Artifacts
 **/CortexM3/
