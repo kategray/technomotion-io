@@ -77,11 +77,9 @@ int main()
     CyDmaChSetInitialTd(DMA_INPUTS_Chan, DMA_INPUTS_TD[0]);
     CyDmaChEnable(DMA_INPUTS_Chan, 1);
     
-    #ifdef Bootloadable_GET_RUN_TYPE
-    // Periodically (10 times per second) check to see if we should enter the bootloader.
-    isr_BL_ClearPending();
-    isr_BL_StartEx(Check_BL);
-    #endif
+    // Periodically update the lights.  A special sequence will enter the bootloader.
+    isr_Lights_ClearPending();
+    isr_Lights_StartEx(Check_Lights);
         
     // Configure the Status Register interrupts
     SR_Inputs_InterruptEnable();
@@ -126,23 +124,24 @@ int main()
     }
 }
 
-#ifdef Bootloadable_GET_RUN_TYPE
-// ISR to check if the Bootloader should run.  We keep this out of the main() loop for
-// performance reasons.
-CY_ISR(Check_BL) {
+CY_ISR(Check_Lights) {
     static uint8 trigger[FEATURE_BUFFER_LEN] = BOOTLOADER_TRIGGER;
     
+#ifdef Bootloadable_GET_RUN_TYPE
     // Should we invoke the bootloader?
     if (!memcmp(FEATURE_BUFFER, trigger, FEATURE_BUFFER_LEN)) {
         // Clear the ISR
-        isr_BL_ClearPending();
-        isr_BL_Disable();
+        isr_Lights_ClearPending();
+        isr_Lights_Disable();
         
         // Run the bootloader
         Bootloadable_Load();
     }
-}
 #endif
+
+    // Write the lights
+    CR_Lights_Write(FEATURE_BUFFER[0]);
+}
 
 /*
  * Callback for when USB endpoint one is processed

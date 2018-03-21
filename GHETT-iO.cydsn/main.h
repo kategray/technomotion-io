@@ -10,7 +10,7 @@
 
 #ifdef Bootloadable_GET_RUN_TYPE
 // Bootloader check ISR
-CY_ISR_PROTO(Check_BL);
+CY_ISR_PROTO(Check_Lights);
 #endif
     
 // The data from the USB feature is stored in a variable with a hard to read name
