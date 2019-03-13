@@ -87,6 +87,9 @@ int main()
     // Enable interrupts (macro for an inline ASM instruction)
     CyGlobalIntEnable;
     
+    // Enable the watchdog timer to reset if this freezes
+    CyWdtStart (CYWDT_1024_TICKS, CYWDT_LPMODE_DISABLED);
+    
     // Zero out the player array.  This is really not needed, but it's still a good habit.
     // The reset interrupt (in CM3Start.c) calls the Start_C function which loops through all 
     // the defined sections, initializing memory from flash for predefined memory (constants, pre-
@@ -151,5 +154,8 @@ void USBFS_EP_1_ISR_ExitCallback() {
     if (USBFS_GetEPState(IN_ENDPOINT) == USBFS_IN_BUFFER_EMPTY) {
         // Re-arm the DMA to re-fill the buffer
         USBFS_LoadInEP(IN_ENDPOINT, USBFS_NULL, sizeof(INPUTS));
+        
+        // Reset the watchdog timer
+        CyWdtClear();
     }    
 }
