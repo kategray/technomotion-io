@@ -38,23 +38,6 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=..\..\..\Users\Public\Documents\Altium\Light Board.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=0
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=0
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=XJOAAQYK
-
-[Document2]
 DocumentPath=Light Board.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -71,7 +54,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WSKQEIMD
 
-[Document3]
+[Document2]
 DocumentPath=Light Board.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -88,7 +71,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KSFDJCXG
 
-[Document4]
+[Document3]
 DocumentPath=Light Board.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -105,117 +88,22 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IREYSMOM
 
-[GeneratedDocument1]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\comp_+_top\components
+[Document4]
+DocumentPath=Light Board.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
 DItemRevisionGUID=
-
-[GeneratedDocument2]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\eda\data
-DItemRevisionGUID=
-
-[GeneratedDocument3]
-DocumentPath=Project Outputs for Light Board\Design Rule Check - Light Board.html
-DItemRevisionGUID=
-
-[GeneratedDocument4]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\bottom_layer\features
-DItemRevisionGUID=
-
-[GeneratedDocument5]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\bottom_overlay\features
-DItemRevisionGUID=
-
-[GeneratedDocument6]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\bottom_paste\features
-DItemRevisionGUID=
-
-[GeneratedDocument7]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\bottom_solder\features
-DItemRevisionGUID=
-
-[GeneratedDocument8]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\comp_+_top\features
-DItemRevisionGUID=
-
-[GeneratedDocument9]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\drill\features
-DItemRevisionGUID=
-
-[GeneratedDocument10]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\keep-out_layer\features
-DItemRevisionGUID=
-
-[GeneratedDocument11]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\mechanical_1\features
-DItemRevisionGUID=
-
-[GeneratedDocument12]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\top_layer\features
-DItemRevisionGUID=
-
-[GeneratedDocument13]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\top_overlay\features
-DItemRevisionGUID=
-
-[GeneratedDocument14]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\top_paste\features
-DItemRevisionGUID=
-
-[GeneratedDocument15]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\top_solder\features
-DItemRevisionGUID=
-
-[GeneratedDocument16]
-DocumentPath=Light Board 2019-03-15 1-20-03 AM.WAS
-DItemRevisionGUID=
-
-[GeneratedDocument17]
-DocumentPath=Light Board 2019-03-15 2-46-45 AM.WAS
-DItemRevisionGUID=
-
-[GeneratedDocument18]
-DocumentPath=Light Board 2019-03-15 2-47-32 AM.WAS
-DItemRevisionGUID=
-
-[GeneratedDocument19]
-DocumentPath=Light Board 2019-03-15 2-48-33 AM.WAS
-DItemRevisionGUID=
-
-[GeneratedDocument20]
-DocumentPath=Light Board 2019-03-14 11-59-01 PM.WAS
-DItemRevisionGUID=
-
-[GeneratedDocument21]
-DocumentPath=Light Board 2019-03-15 12-00-06 AM.WAS
-DItemRevisionGUID=
-
-[GeneratedDocument22]
-DocumentPath=Light Board 2019-03-15 12-34-57 AM.WAS
-DItemRevisionGUID=
-
-[GeneratedDocument23]
-DocumentPath=Project Outputs for Light Board\Light Board.REP
-DItemRevisionGUID=
-
-[GeneratedDocument24]
-DocumentPath=Project Outputs for Light Board\odb\matrix\matrix
-DItemRevisionGUID=
-
-[GeneratedDocument25]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\netlists\cadnet\netlist
-DItemRevisionGUID=
-
-[GeneratedDocument26]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\profile
-DItemRevisionGUID=
-
-[GeneratedDocument27]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\stephdr
-DItemRevisionGUID=
-
-[GeneratedDocument28]
-DocumentPath=Project Outputs for Light Board\odb\steps\pcb\layers\drill\tools
-DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=XJOAAQYK
 
 [Configuration1]
 Name=Sources
@@ -342,7 +230,7 @@ PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate
 [OutputGroup3]
 Name=Documentation Outputs
 Description=
-TargetPrinter=Adobe PDF
+TargetPrinter=Virtual Printer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Composite
 OutputName1=Composite Drawing
@@ -1199,4 +1087,7 @@ ComparisonOptions2=Kind=Component Class|MinPercent=75|MinMatch=3|ShowMatch=-1|Co
 ComparisonOptions3=Kind=Rule|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
 ComparisonOptions4=Kind=Differential Pair|MinPercent=50|MinMatch=1|ShowMatch=0|Confirm=0|UseName=0|InclAllRules=0
 ComparisonOptions5=Kind=Structure Class|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
+
+[SmartPDF]
+PageOptions=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 
