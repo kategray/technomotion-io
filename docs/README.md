@@ -65,7 +65,7 @@ Pump It Up was built as a 5 panel game in part to get around the design patents.
 #### Roxor Games (In The Groove)
 Around 2004, Roxor Games came out with In The Groove, a game designed to adress the stagnation in the dance game marketplace.  Roxor contacted the authors of the open-source StepMania game, and were able to get it relicensed.  They partnered with Andamiro to produce a line of arcade cabinets that featured StepMania in a 4 panel configuration, with new songs and features.
 
-Additionally, they produced a line of upgrade kits for existing Dance Dance Revolution arcade machines.  This led to a lawsuit for infringement of design patents that ultimately bankrupted them and led to a settlement in which Konamy received all rights to the In The Groove intellectual property.
+Additionally, they produced a line of upgrade kits for existing Dance Dance Revolution arcade machines.  This led to a lawsuit for infringement of design patents that ultimately bankrupted them and led to a settlement in which Konami received all rights to the In The Groove intellectual property.
 
 The ITG-IO, unlike the hardware produced by Konami is designed to be cheap.  By using commodity desktop computers, they were able to position themselves as a very low cost upgrade.  RF emissions were high, and the lack of a common ground between the PC and the arcade power supply would often lead to problems, but for arcade owners facing dwindling returns on their hardware, it was a cost-effective solution.
 
